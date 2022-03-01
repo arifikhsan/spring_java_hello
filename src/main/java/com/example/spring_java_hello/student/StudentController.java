@@ -24,4 +24,17 @@ public class StudentController {
     public void create(@RequestBody Student student) {
         service.create(student);
     }
+
+    @DeleteMapping(path = "{id}")
+    public void delete(@PathVariable("id") Long id) {
+        service.delete(id);
+    }
+
+    @PutMapping(path = "{id}")
+    public void update(
+            @PathVariable("id") Long id,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String email) {
+        service.update(id, name, email);
+    }
 }
